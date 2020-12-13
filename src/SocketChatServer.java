@@ -106,13 +106,6 @@ public class SocketChatServer {
         System.out.println("*********** " + socket.getInetAddress() + " " + nickName + "님 종료 ***********");
         // 클라이언트(들)에게 접속 종료 메시지 전달
         sendMessage(nickName + "님이 나가셨습니다\n");
-        //
-        try{
-            socket.close();
-            System.out.println(nickName + " 소켓 close()");
-        } catch (Exception e){
-            System.out.println("에러");
-        }
         // 맵에서 클라이언트 정부 삭제
         clientsMap.remove(nickName);
 
