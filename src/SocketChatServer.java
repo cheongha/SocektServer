@@ -68,9 +68,7 @@ public class SocketChatServer {
         public void run() {
             try {
                 // DataInputStream이 있을 때까지
-                while (true) {
-                    // DataInputStream이 없다면 break -> finally{}
-                    if (dis == null) break;
+                while (dis != null) {
                     // 메시지 읽어들이기
                     messeage = dis.readUTF();
                     // 클라이언트로 메시지 전달
