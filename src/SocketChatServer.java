@@ -13,7 +13,7 @@ public class SocketChatServer {
     private ServerSocket serverSocket;  // 서버의 소켓
     private Socket socket;              // 소켓
     private String messeage;            // 메시지 데이터
-    private Integer port = 3000;        // 서버에서 열 Port
+    private Integer port = 3003;        // 서버에서 열 Port
 
     // 사용자들의 정보를 저장하는 맵
     private Map<String, DataOutputStream> clientsMap = new HashMap<String, DataOutputStream>();
@@ -51,7 +51,7 @@ public class SocketChatServer {
         private DataOutputStream dos;
         private String nickName;
 
-        /** read() / write()를 반복해서 실행 **/
+        /** 소켓 생성 **/
         public SocketThread(Socket socket) throws IOException {
             // 데이터를 주고 받을 통로 구축
             dis = new DataInputStream(socket.getInputStream());
@@ -64,7 +64,7 @@ public class SocketChatServer {
             addClient(nickName, dos);
         }
 
-        // read() / write()
+        /** read() / write()를 반복해서 실행 **/
         public void run() {
             try {
                 // DataInputStream이 있을 때까지
